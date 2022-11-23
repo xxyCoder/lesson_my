@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>代理模式之设计模式</h1>
+    <script>
+        // 对象字面量
+        // 对象由属性和方法构成
+        let Miyuki = {
+            name: 'Miyuki',
+            age: 20,
+            home: 'earth',
+            'first-name':'x',
+            hasMoney:true,
+            sendFlower(o) {
+                o.receiveFlower(this);
+            }
+        }
+        let Kazuya = {
+            name: 'Kazuya',
+            age: 18,
+            home: 'earth',
+            hasMoney:false,
+            receiveFlower(o) {
+                //console.log('收到来自' + o.name + '的花');
+                console.log(`${this.name}收到了来自${o.name}的花`);
+            }
+        }
+        // 代理模式
+        let others = {
+            name: 'others',
+            room: '201',
+            home: 'earth',
+            // 接口：当不同的对象，具有相同的方法，可以互换使用
+            receiveFlower(o) {
+                Kazuya.receiveFlower(o);
+            }
+        }
+        Miyuki.sendFlower(others);
+    </script>
+</body>
+</html>
