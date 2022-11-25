@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 基类
+        class Beverage {
+            constructor() {
+                console.log('开始冲泡');
+            }
+            boilWater() {
+                console.log('开始烧水');
+            }
+
+            // abstract 方法
+            brew() {
+
+            }
+            pourInCup() {
+
+            }
+            addSomething() {
+
+            }
+        }
+
+        class Coffee extends Beverage {
+            constructor() {
+                super();    //调用父类方法
+                this.boilWater();
+                this.pourInCup();
+                this.brew();
+                this.addSomething();
+            }
+            brew() {
+                console.log('用水冲泡咖啡');
+            }
+            pourInCup() {
+                console.log('把咖啡倒进杯子');
+            }
+            addSomething() {
+                console.log('添加白糖和咖啡');
+            }
+        }
+        class Tea extends Beverage {
+            constructor() {
+                super();    //调用父类方法
+                this.boilWater();
+                this.pourInCup();
+                this.brew();
+                this.addSomething();
+            }
+            brew() {
+                console.log('用水冲泡茶叶');
+            }
+            pourInCup() {
+                console.log('把茶叶倒进杯子');
+            }
+            addSomething() {
+                console.log('添加珍珠');
+            }
+        }
+        const cof = new Coffee();
+        const tea = new Tea();
+
+        console.log(tea instanceof Beverage);
+    
+    </script>
+</body>
+</html>

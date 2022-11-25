@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // const 定义常量
+        const duck = {
+            sing(){
+                console.log('嘎嘎嘎');
+            }
+        }
+
+        // 接口
+        const chick = {
+            sing() {
+                console.log('嘎嘎嘎');
+            }
+        }
+
+        const chior = [];   //用数组来装鸭子
+        for(let i = 0;i < 999;++ i){
+            chior.push(duck);
+        }
+        
+        if(typeof chick.sing == 'function') {
+            chior.push(chick);
+        }
+
+        if(chior.length < 1000){
+            console.log("鸭子数不够");
+        }
+        else{
+            console.log("数量够了");
+        }
+    
+    </script>
+</body>
+</html>

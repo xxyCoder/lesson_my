@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Coffee {
+            constructor(type) {
+                this.type = type;
+                console.log('开始泡一杯' +this.type);
+                this.boilWater();
+                this.pourInCup();
+                this.brewCoffeeGriends();   
+                this.addSomething();
+            }
+            boilWater() {
+                console.log('把水烧开');
+            }
+            brewCoffeeGriends() {
+                console.log('用沸水冲泡咖啡');
+            }
+            pourInCup() {
+                console.log('把咖啡倒入杯子');
+            }
+            addSomething() {
+                console.log('添加白糖和牛奶');
+            }
+        }
+        const cof = new Coffee('卡布奇诺');
+        
+
+        const cof1 = new Coffee('拿铁');
+
+        console.log(cof.boilWater == cof1.boilWater);
+        console.log(cof.type == cof1.type);
+
+        class Tea {
+            constructor() {
+                console.log('开始泡茶');
+            }
+            boilWater() {
+                console.log('把水烧开');
+            }
+            brewTeaGriends() {
+                console.log('用沸水冲茶叶');
+            }
+            pourInCup() {
+                console.log('把茶倒入杯子');
+            }
+            addSomething() {
+                console.log('加入珍珠');
+            }
+        }
+    </script>
+</body>
+</html>
