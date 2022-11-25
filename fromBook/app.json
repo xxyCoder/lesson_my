@@ -1,0 +1,18 @@
+{
+    "pages": [
+        "pages/post/post",
+        "pages/welcom/welcom",
+        "pages/index/index"
+        
+    ],
+    "window": {
+        "navigationBarBackgroundColor": "#ecc0a8",
+        "navigationBarTextStyle":"black",
+        "navigationBarTitleText":"首页",
+        "backgroundColor":"#fff",
+        "backgroundTextStyle": "light",
+        "enablePullDownRefresh": true
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json"
+}
