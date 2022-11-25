@@ -1,0 +1,26 @@
+.weui-btn {
+    position: relative;
+    display: block;
+    width: 184px;
+    padding: 8px 24px;
+    font-weight: 700px;
+    font-size: 17px;
+    color: #fff;
+    line-height: 1.88235294;
+    text-align: center;
+    margin: 0 auto;
+    border-radius: 8px;
+}
+.weui-btn_primary {
+    background-color: pink;
+}
+.weui-btn_primary:active {
+    background-color: #07c160;
+}
+.weui-btn_warn {
+    background-color: brown;
+    color: #fff;
+}
+.weui-btn + .weui-btn {
+    margin-top: 10px;
+}
