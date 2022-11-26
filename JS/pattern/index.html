@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function createPerson(name,age,job) {
+            var o = new Object();
+            o.name = name;
+            o.age = age;
+            o.job = job;
+            o.sayName = function() {
+                console.log(this.name);
+            };
+            return o;
+        }
+        var p1 = createPerson("xxy",20,"student");
+        var p2 = createPerson("xxyy",21,"ACMer");
+
+        function Person(name,age,job) {
+            this.name = name;
+            this.age = age;
+            this.job = job;
+            this.sayName = function() {
+                console.log(this.name);
+            };
+        }
+
+        var p3 = new Person("xxxy",20,"student");
+        var p4 = new Person("xxy",21,"student");
+        console.log(p3.constructor == Person);
+        console.log(p3.sayName == p4.sayName);  //false
+        Person("window",99,"os");
+        window.sayName();
+
+    </script>
+</body>
+</html>
