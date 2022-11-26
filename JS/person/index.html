@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var person1 = new Object();
+        person1.name = "xxy";
+        person1.age = 20;
+        person1.job = "student";
+        person1.sayName = function() {
+            console.log(this.name);
+        }
+        person1.sayName();
+
+        var person2 = {
+            name: "xxy",
+            age: 20,
+            job: "student",
+            sayName: function() {
+                console.log(this.name);
+            }
+        }
+        person2.sayName();
+
+        var person3 = {};
+        Object.defineProperty(person3,"name",{
+            writable:false,
+            value:"xxy"
+        });
+        console.log(person3.name);
+        person3.name = "xxxxy";
+        console.log(person3.name);
+        var person4 = {};
+        Object.defineProperty(person4,"name",{ 
+            value:"xxy",
+            configurable: true
+        });
+        person4.name = "xxxy";
+        console.log(person4.name);  
+        Object.defineProperty(person4,"name",{
+            writable:false,
+            value:"xxxyy"
+        });
+        person4.name = "xxxy";
+        console.log(person4.name);
+
+        var person5 = {
+            _birth: 2002,
+            age: 20
+        };
+        // 调用的属性需要有_ 标记，不然后面调用该属性给其赋值时候会报错
+        Object.defineProperty(person5,"birth",{
+            get: function(){
+                return this._birth;
+            },
+            set: function(newValue) {
+                if(newValue > 2002) {
+                    this._birth = newValue;
+                    this.age += newValue - 2002;
+                }
+            }
+        });
+        person5.birth = 2005;
+        console.log(person5.age);
+
+        var person6 = {};
+        Object.defineProperties(person6,{
+            _birth: {
+                writable:true,
+                value:2002
+            },
+            age: {
+                writable:true,
+                value: 20
+            },
+            birth: {
+                get: function() {
+                    return this._birth;
+                },
+                set: function(newValue) {
+                    if(newValue > 2002) {
+                        this._birth = newValue;
+                        this.age += newValue - 2002;
+                    }
+                }
+            }
+        });
+        person6.birth = 2006;
+        console.log(person6.age);
+
+        var descriptor = Object.getOwnPropertyDescriptor(person6,"_birth");
+        console.log(descriptor.configurable);
+        console.log(descriptor.value);
+    </script>
+</body>
+</html>
