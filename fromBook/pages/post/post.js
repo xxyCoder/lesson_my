@@ -1,3 +1,18 @@
 Page({
-    
+    data:{},
+    onLoad:function(options){
+        console.log("OnLoad页面被加载");
+    },
+    onShow:function(){
+        console.log("onShow页面被显示");
+    },
+    onReady:function(){
+        console.log("onReady页面被渲染");
+    },
+    onHide:function(){
+        console.log("onHide页面被隐藏");
+    },
+    onUnload:function(){
+        console.log("onLoad页面被卸载");
+    }
 })
