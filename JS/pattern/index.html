@@ -37,6 +37,68 @@
         Person("window",99,"os");
         window.sayName();
 
+
+        function Person1() {
+
+        }
+        Person1.prototype.name = "xxy";
+        Person1.prototype.age = 20;
+        Person1.prototype.job = "student";
+        Person1.prototype.sayName = function(){
+            console.log(this.name);
+        };
+        Person1.prototype.friedns=["xxxx","xxx1"];
+        var p11 = new Person1();
+        p11.sayName();
+        var p12 = new Person1();
+        console.log(p11.sayName == p12.sayName);    //true
+
+        p11.name = 'xxxy';
+        p11.friedns.push("yyy");
+        console.log(p11.name);  //来自实例
+        console.log(p11.hasOwnProperty("name"));    //true
+        
+        console.log(p12.name);  //来自原型
+        p12.friedns.push("ppp");
+        console.log(p12.hasOwnProperty("name"));    //false
+        
+        delete p11.name;
+        console.log(p11.name);  //来自原型
+
+        // 对于引用类型比较复杂，不会隐藏原型中数据
+        console.log(p11.friedns);
+        console.log(p11.friedns == p12.friedns);
+
+        for(var prop in p11){
+            if(prop == "name"){
+                console.log("find!");
+            }
+        }
+
+        Object.defineProperty(p11,"name",{
+            enumerable:false
+        });
+        console.log(Object.keys(Person1.prototype));    //得到对象自身所有可枚举的属性名组成的字符串数组，即使设置了不可枚举
+        console.log(Object.getOwnPropertyNames(Person1.prototype)); // 包含了constructor
+
+        // 更简单写法
+        function Person2(){}
+        Person2.prototype = {
+            name:"xxy",
+            age:20,
+            job:"student",
+            sayName:function(){
+                console.log(this.name);
+            }
+        };
+        var p21 = new Person2();
+        console.log(p21.constructor == Person2);    //false
+        console.log(p21.constructor == Object);     //true
+        // 但是会导致constructor指向Object，如果直接在protptype中设置会导致其可以被枚举
+        Object.defineProperty(Person2.prototype,"constructor",{
+            enumerable:false,
+            value:Person2
+        });
     </script>
 </body>
 </html>
