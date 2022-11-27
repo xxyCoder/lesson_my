@@ -1,12 +1,12 @@
 {
     "pages": [
-        "pages/post/post",
         "pages/welcom/welcom",
-        "pages/index/index"
+        "pages/index/index",
+        "pages/post/post"
         
     ],
     "window": {
-        "navigationBarBackgroundColor": "#ecc0a8",
+        "navigationBarBackgroundColor": "#4a6141",
         "navigationBarTextStyle":"black",
         "navigationBarTitleText":"首页",
         "backgroundColor":"#fff",
