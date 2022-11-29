@@ -99,6 +99,48 @@
             enumerable:false,
             value:Person2
         });
+
+        function Person3(name,age,job){
+            this.name = name;
+            this.job = job;
+            this.age = age;
+            this.friedns = ["Miyuki","Kazuya"];
+        }
+        Person3.prototype = {
+            constructor: Person3,
+            sayName: function(){
+                console.log(this.name);
+            }
+        }
+        var p31 = new Person3("xxy",20,"student");
+        var p32 = new Person3("xxx",21,"sudent");
+        console.log(p31.friedns == p32.friedns);    //false
+        console.log(p31.sayName == p32.sayName);    //true
+
+        function SpecialArray(){
+            var values = new Array();
+            values.push.apply(values,arguments);
+            values.toPipedSstring = function(){
+                return this.join("|");
+            }
+            return values;
+        }
+        var colors = new SpecialArray("red","blue","green");
+        console.log(colors);
+        console.log(colors instanceof SpecialArray);    //false
+        console.log(colors instanceof Array);   // true
+
+        function Person4(name,age,job){
+            var o = new Object();
+            
+            o.sayName = function(){
+                console.log(name);
+            };
+            return o;
+        }
+        var p41 = Person4("xxy",20,"student");
+        p41.sayName();  // xxy
     </script>
+
 </body>
 </html>
