@@ -1,0 +1,17 @@
+<template name="postItemTpl">
+    <view class="post-container">
+        <view class="post-author-date">
+            <image src="{{postImg}}" />
+            <text>{{date}}</text>
+        </view>
+        <text class="post-title">{{title}}</text>
+        <image class="post-image" src="https://p3.dcarimg.com/img/motor-img/e1acc27d3434f67503bde03ba01408fa~332x0.webp" mode="aspectFill" />
+        <text class="post-content">{{content}}</text>
+        <view class="post-like">
+            <image src="https://p3.dcarimg.com/img/motor-img/ce6c08c11c69eb40a1286d005d7051a2~332x0.webp" />
+            <text>{{readingNum}}</text>
+            <image src="https://p3.dcarimg.com/img/motor-img/d3e11a7ca04a0e14659e9fb98b820f2d~332x0.webp" />
+            <text>{{commentNum}}</text>
+        </view>
+    </view>
+</template>
