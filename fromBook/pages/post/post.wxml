@@ -13,7 +13,7 @@
     </swiper>
 </view>
 <import src="./post-item/post-item-tpl.wxml" />
-<block wx:for="{{postList}}" wx:for-item="item" wx:for-index="idx">
+<block wx:for="{{postList.postList}}" wx:for-item="item" wx:for-index="idx">
     <template is="postItemTpl" data="{{...item}}" />
     <!-- <include src="./post-item/post-item-tpl.wxml"/> -->
 </block>

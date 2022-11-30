@@ -1,5 +1,6 @@
-var dataObj = require("../../data/data.js");
-
+// var dataObj = require("../../data/data.js");
+// var DBPost = require("../../db/DBPost.js").DBPost;
+import {DBPost} from '../../db/DBPost.js';
 Page({
     data: {
         // object: {
@@ -14,15 +15,22 @@ Page({
         //     array:[97]
         // }
     },
-    onLoad: function (options) {
+    onLoad: function () {
         console.log("OnLoad页面被加载");
-        this.setData({
-            title: "一辆汽车的发展史",
-            "commentNum.array[0]": 100,
-            "object.date": "Jan 29 2020",
-            // content:"看车就上懂车帝"
-            postList: dataObj.postList
-        })
+        // this.setData({
+        //     title: "一辆汽车的发展史",
+        //     "commentNum.array[0]": 100,
+        //     "object.date": "Jan 29 2020",
+        //     // content:"看车就上懂车帝"
+        //     postList: dataObj.postList
+        // })
+         var dbPost = new DBPost();
+        // this.setData({
+        //     postList: dbPost.getAllPostData()
+        // });
+        this.setData ({
+            postList:dbPost.getAllPostData()
+        });
     },
     onShow: function () {
         console.log("onShow页面被显示");
