@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var num = 10;   //全局变量
+        function func(num2) {   // 函数的形参是局部变量
+            num1 = 10;  // 在函数内部没有声明直接赋值的变量也属于全局变量
+        }
+        //  console.log(num2); 报错
+
+        function add1(num) {
+            num ++;
+        }
+        function add2(arr) {
+            arr.push(1);
+        }
+        var t1 = 1;
+        var t2 = [2,3];
+        add1(t1);
+        console.log(t1);    // 1
+        add2(t2);
+        console.log(t2);    // [2,3,1]
+        
+        // 容易误解的一个地方
+        function setName(obj) {
+            obj.name = "xxy";
+            obj = new Object();
+            obj.name = "xxxxy";
+        }
+        var person = new Object();
+        setName(person);
+        console.log(person.name);   // xxy
+        // 会让人误以为是按引用传递，如果是按引用的话，那么输出应该是xxxxy
+
+    </script>
+</body>
+</html>
