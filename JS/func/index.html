@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function sayHi(name,message) {
+            console.log("Hello," + name + "," + message);
+        }
+        sayHi("xxy","welcome");
+
+        function sum(num1,num2) {
+            return [num1 + num2,num1 - num2];   // 利用数组返回多个值
+        }
+        console.log(sum(1,2));
+
+        function fun1() {
+            console.log("返回值为undefined");
+        }
+        console.log(fun1());
+
+        function sum1() {
+            let sum = 0;
+            for(let i = 0;i < arguments.length;++ i){
+                sum += arguments[i];
+            }
+            return sum;
+        }
+        console.log(sum1(1,2,3,4,5));
+
+        // 函数中调用另一个函数
+        function sum2() {
+            if(arguments.length == 2){
+                console.log("sum() ....")
+                return sum(arguments[0],arguments[1]);
+            }
+            else {
+                console.log("sum1() ...");
+                // 无法将arguments传递
+                let res = 0;
+                for(let i = 0;i < arguments.length;++ i){
+                    res += sum1(arguments[i]);
+                }
+                return res;
+            }
+        }
+        console.log(sum2(1,2));
+        console.log(sum2(1,2,3,4));
+
+        // fun是变量名，不是函数名
+        var fun = function () {
+            console.log("我是匿名的，函数表达式");
+        }
+        fun();
+    </script>
+</body>
+
+</html>
