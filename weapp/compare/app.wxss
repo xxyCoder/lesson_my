@@ -1,0 +1,4 @@
+button {
+    /* 字符间距 */
+    letter-spacing: 12rpx;
+}

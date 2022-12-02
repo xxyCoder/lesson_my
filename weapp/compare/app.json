@@ -1,0 +1,11 @@
+{
+    "pages":[
+        "pages/index/index",
+        "pages/text/text"
+    ],
+    "window": {
+        "navigationBarTitleText": "数值比较",
+        "navigationBarBackgroundColor": "#369"
+    },
+    "debug": true
+}
