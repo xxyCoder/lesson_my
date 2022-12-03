@@ -1,12 +1,14 @@
+<form bindsubmit="formCompare">
+    <view>
+        <text>请输入第一个数字:</text>
+        <input id="num1" name="num1" type="number" bindchange="change" />
+    </view>
+    <view>
+        <text>请输入第二个数字:</text>
+        <input id="num2" name="num2" type="number" bindchange="change" />
+    </view>
+    <button form-type="submit">比较</button>
+</form>
 <view>
-    <text>请输入第一个数字:</text>
-    <input type="number" />
-</view>
-<view>
-    <text>请输入第二个数字:</text>
-    <input type="number" />
-</view>
-<button>比较</button>
-<view>  
-    <text>比较结果:</text>
+    <text>比较结果:{{result}}</text>
 </view>

@@ -60,9 +60,21 @@
     - onShow    监听页面显示
     - onHide    监听页面隐藏
     - onUnload  监听页面卸载
-    - onPullDownRefresh 监听用户下拉动作
-    - onReachBottom 页面上拉触底
+    - onPullDownRefresh 监听用户下拉动作，需要在配置文件中设置enablePullDownRefresh为true才有效
+    - onReachBottom 页面上拉触底，需要在配置文件中将onReachBottomDistance设置为true才有效
     - onShareAppMessage 用户点击右上角分享按钮  
-    - onPageScroll  页面连续滚动触发
+    - onPageScroll  页面连续滚动触发，开发者工具没有自动生成onPageScroll函数，需要手动添加并且要确保内容高度超显示区域，使页面出现滚动条
     对于生命周期函数的执行顺序
         onLoad -> onShow -> onReady
+2. 组件事件处理函数
+    - 函数有一个参数e，表示事件对象，通过它可以获得事件发生时的一些相关信息
+    有type（事件类型）、timestamp（事件生成时的时间戳）、target（触发事件的组件的一些属性集合）、currentTarget（当前组件的一些属性值集合）、detail（额外的信息）
+    target: 触发事件的源组件
+    currentTarget: 事件绑定的当前组件
+    - 小程序不是运行在浏览器环境，故不能使用DOM BOM
+    - bind事件是不会阻止冒泡事件向上冒泡
+    - catch可以阻止冒险事件往上冒泡
+3. 组成程序
+    - App() 函数用于注册小程序，接收一个对象参数，通过参数指定小程序的生命周期回调等，必须在app.js中调用，且只能调用一次
+    - 可以利用App() 函数保存一些在所有页面中共享的数据
+    - 在页面中获取App使用getApp()
