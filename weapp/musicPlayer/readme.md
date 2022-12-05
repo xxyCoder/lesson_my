@@ -1,0 +1,16 @@
+## swiper组件
+1. indicator-dots，是否显示面板指示点
+2. indicator-color，指示点颜色
+3. indicator-active-color，当前选中指示点颜色
+4. autoplay，自动播放
+5. current，当前滑块，通过改变current，可以切换当前显示哪一项<swiper-item>，索引从0开始
+6. current-item-id，当前滑块所在item-id，不同同时指定current
+## include代码引用
+1. 在wxml文件中使用，相当于把引用的代码赋值到include标签位置
+## scroll-view组件
+1. 用于实现可滚动视图区域
+2. scroll-x,允许横向滚动
+2. scroll-y,允许纵向滚动,需要设置固定高度,否则会被子元素撑大
+3. scroll-top,设置竖向滚动条位置
+4. scroll-left,设置横向滚动条位置
+5. scroll-animation,设置滚动位置是否使用动画过渡
