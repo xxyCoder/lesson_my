@@ -1,0 +1,204 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #EFEFEF;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.banxi {
+    margin-left: 120px;
+    margin-top: 20px;
+}
+
+.aside {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background:#34495E;
+    width: 59.2px;
+    height: 100%;
+}
+.aside-img1 {
+    display: block;
+    width: 100%;
+    height: 70px;
+    background: #3498DB;
+    overflow: hidden;
+}
+.aside-img1 img {
+    width: 20px;
+    height: 34px;
+    display: block;
+    margin: 15px auto;
+}
+.aside-text1 {
+    display: block;
+    height: 26px;
+    font-size: 12.8px;
+    color: #DDDDDD;
+    text-align: center;
+    line-height: 26px;
+}
+.aside-text1::after{
+    content: ">>";
+    font-size: 12.8px;
+    color: #DDDDDD;
+}
+
+.aside-text2{
+    font-size: 12.8px;
+    color: #DDDDDD;
+    display: block;
+    height: 59px;
+    text-align: center;
+}
+.fa-book {
+    width: 15.4px;
+    height: 19.5px;
+    display: block;
+    margin: 9px auto 2px;
+}
+
+/* 头部 */
+.header {
+    background-color: #fff;
+    height: 70px;
+}
+
+.header-left {
+    float: left;
+}
+
+.header-left img {
+    vertical-align: middle;
+    height: 40px;
+    margin: 10px 100px 20px;
+}
+.header-left a {
+    margin-right: 20px;
+    color: #000;
+}
+.header-right {
+    float: right;
+}
+
+.header-right a {
+    width: 16px;
+}
+.header-right .fa-search {
+    margin-top: 25px;
+    width: 16px;
+    color: black;
+    margin-right: 10px;
+}
+.header-right img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin-right: 30px;
+}
+.header::after {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+/* 内容 */
+.content1 {
+    width: 1080px;
+    height: 321px;
+    background-color: #fff;
+}
+.content1 img {
+    width: 692px;
+    height: 270px;
+    margin: 25px 20px;
+}
+
+.conten1-left {
+    width: 700px;
+    float: left;
+    margin-right: 50px;
+}
+
+.content1-right {
+    float: right;
+}
+
+.content1::after {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.content1 h2 {
+    text-align: center;
+}
+
+.content1 span {
+    text-align: center;
+}
+
+.content1 strong {
+    font-size: 20px;
+}
+.content1 .chance {
+    display: block;
+    box-sizing: border-box;
+    width: 310px;
+    height: 90px;
+    font-size: 60px;
+    color: #E74C3C;
+}
+.should-left {
+    float: left;
+    width: 120px;
+    height: 70px;
+    padding: 5px 10px;
+}
+.should-right {
+    float: right;
+    width: 120px;
+    height: 70px;
+    padding: 5px 10px;
+}
+.w-bold {
+    color: #E74C3C;
+    font-weight: bold;
+    font-size: 20px;
+}
+.w-small {
+    font-weight: lighter;
+    font-size: 12px;
+}
+.b-bold {
+    font-weight: bold;
+    font-size: 20px;
+}
+.b-small {
+    font-weight: lighter;
+    font-size: 12px;
+}
+.should::after {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.should-bottom {
+    margin-top: 40px;
+    text-align: center;
+
+    font-size: 6px;
+    color: #937F93;
+}
