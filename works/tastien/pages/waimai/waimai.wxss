@@ -1,0 +1,66 @@
+.page {
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+.page__hd {
+    height: 88rpx;
+}
+.page__bd {
+    flex: 1;
+}
+.rx_tab {
+    display: flex;
+    height: 100%;
+}
+.rx_tab__item {
+    position: relative;
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.rx_tab__item-on {
+    color: #f01414;
+}
+.rx_tab__item::before {
+    content: '';
+    position: absolute;
+    top: 20rpx;
+    right: 0;
+    bottom: 20rpx;
+    width: 1px;
+    background: rgba(0, 0, 0, .2);
+}
+.rx_tab__item:last-child::before {
+    display: none;
+}
+.rx_tab__item-on::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 80rpx;
+    right: 80rpx;
+    height: 1px;
+    background-color: #f01414;
+}
+.page__bd swiper {
+    height: 100%;
+}
+.rx_goods {
+    display: flex;
+    height: 100%;
+}
+.menu-wrapper,.food-wrapper {
+    height: 100%;
+}
+.menu-wrapper {
+    width: 160rpx;
+    /* background-color: green; */
+}
+.food-wrapper {
+    flex: 1;
+    /* background-color: yellow; */
+}
