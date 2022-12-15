@@ -9,3 +9,12 @@ sl.addEventListener('mouseout',function() {
     ddp.style.display = 'none';
     sa.style.backgroundColor = '#e3e4e5';
 })
+
+var sus = document.querySelector('.shorcut_ul2__show');
+var ts = document.querySelector('.the_show');
+sus.addEventListener('mouseover',function() {
+    ts.style.display = 'block';
+})
+sus.addEventListener('mouseout',function() {
+    ts.style.display = 'none';
+})
