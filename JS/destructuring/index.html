@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let [foo,[[bar],baz]] = [1,[[2],3]];
+        console.log(foo,bar,baz);
+        let [x,,y] = [1,2,3];
+        console.log(x,y);
+        let [h,...t] = [1,2,3,4,5];
+        console.log(h,t);
+
+        let [a = 1] = [];
+        let [u = 1,v] = [undefined,2];
+        console.log(u,v);
+        console.log(a);
+        function f() {
+            console.log('f 执行');
+            return 2;
+        }
+        let [b = f()] = [1];    // f不会被执行
+        console.log(b);
+
+        let {bor,far} = {bor:1,far:2};
+        console.log(bor,far);
+        const {log} = console;
+        log('this is console.log');
+
+        let {fo:ba} = {fo:'fooo'};
+        console.log(ba);
+
+        let z;
+        // {z} = {z:1};
+        ({z} = {z:1});
+        console.log(z);
+
+        let arr = [1,2,3];
+        let {0: first,[arr.length - 1]: last} = arr;
+        console.log(first,last);
+
+        const [q,w,e,r] = "abcd";
+        let {length: len} = "abcd";
+        console.log(q,len);
+
+        function add([x,y]) {
+            console.log(x + y);
+        }
+        add([1,2]);
+
+        // swap
+        let pp = 1,qq = 2;
+        [pp,qq] = [qq,pp];
+        console.log(pp,qq);
+    </script>
+</body>
+</html>
