@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+        // const promise = new Promise(function(resolve,reject) {
+        //     if(true) {
+        //         resolve();
+        //     }
+        //     else {
+        //         reject();
+        //     }
+        // })
+        // promise.then(function() {
+        //     console.log("success");
+        // },function() {
+        //     console.log("error");
+        // })
+
+		// const promise = new Promise(function(resolve,reject) {
+		// 	return resolve(222);
+		// 	console.log(111);
+		// })
+		// promise.then(function(value) {
+		// 	console.log(value)
+		// })
+		// var value = 1;
+		// const promise = new Promise(function(resolve,reject) {
+		// 	if(value == 1) {
+		// 		console.log("in...")
+		// 		resolve();
+		// 		++ value
+		// 		console.log(value)
+		// 	}
+		// 	else {
+		// 		reject();
+		// 	}
+		// 	console.log("finish");
+		// })
+		// promise
+		// 	.then(function(){
+		// 		console.log("value == 1, 1f");
+		// 	},function() {
+		// 		console.log("value change, 1f");
+		// 	})
+		// 	.then(function() {
+		// 		console.log("value == 1, 2f");
+		// 	},function() {
+		// 		console.log("value change, 2f");
+		// 	})
+		// const promise = new Promise(function(resolve,reject) {
+		// 	throw new Error('test');
+		// });
+		// promise.catch(function(error) {
+		// 	console.log(error);
+		// });
+		// const promise = new Promise(function(resolve,reject) {
+		// 	try {
+		// 		throw new Error('test');
+		// 	}
+		// 	catch(e) {
+		// 		reject(e);
+		// 	}
+		// });
+		// promise.catch(function(e) {
+		// 	console.log(e);
+		// })
+		// const promise = new Promise(function(resolve,reject) {
+		// 	reject(new Error('test'));
+		// })
+		// promise.catch(function(e) {
+		// 	console.log(e);
+		// })
+		// const promise = new Promise(function(resolve,reject) {
+		// 	resolve("111");
+		// 	throw new Error('test');
+		// })
+		// promise.then(function(value) {
+		// 	console.log(value);
+		// }).catch(function(err) {
+		// 	console.log(err);
+		// })
+		// const promise = new Promise(function(resolve,reject) {
+		// 	resolve();
+		// })
+		// promise.then(function() {
+		// 	console.log(x + 2);
+		// }).catch(function(err) {
+		// 	console.log("捕获x + 2中x未定义异常");
+		// 	throw new Error('throw');
+		// }).catch(function(err) {
+		// 	console.log("捕获上次抛出异常");
+		// 	throw new Error('again');
+		// })
+		// console.log("main function ...");
+
+		const promise = new Promise(function(resolve,reject) {
+			resolve("hello");
+		})
+		promise.then(function(value) {
+			console.log(value);
+		}).finally(function() {
+			console.log("finally");
+		})
+	</script>
+</body>
+
+</html>
