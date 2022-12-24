@@ -1,5 +1,6 @@
 {
     "pages": [
+        "pages/video/video",
         "pages/waimai/waimai",
         "pages/didi/didi",
         "pages/index/index",
