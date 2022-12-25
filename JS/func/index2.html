@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let sum = (a,b) => {
+            return a + b;
+        }
+        let tri = x => 3 * x;
+
+        function makeKing(name = 'xxx') {
+            console.log(arguments[0]);
+            return `King ${name} VIII`;
+        }
+        
+        function useBefore(name = 'xxx',nickname = name) {
+            return name + ' ' + nickname;
+        }
+        function useBodyArg(name,nickname = defaultname) {
+            // let defaultname = 'xxx';
+            return nickname + ' ' + name;
+        }
+    </script>
+</body>
+</html>
