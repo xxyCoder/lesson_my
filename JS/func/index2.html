@@ -25,6 +25,39 @@
             // let defaultname = 'xxx';
             return nickname + ' ' + name;
         }
+
+        function getSum() {
+            let sum = 0;
+            for(let i = 0;i < arguments.length;++ i) {
+                sum += arguments[i];
+            }
+            return sum;
+        }
+        let values = [1,2,3,4,5];
+        console.log(getSum(values));
+        console.log(getSum(...values,1)); // 扩展操作符
+
+        function getSum2(Value,...args) {
+            let sum = Value;
+            for(let i = 0;i < args.length;++ i) {
+                sum += args[i];
+            }
+            return sum;
+        }
+        console.log(getSum2(112,...[1,2,3]));
+        console.log(getSum2(1,2,3));
+
+        // 私有变量
+        function MyObject() {
+            let privateVariable = 10;
+            function privateFunction() {
+                return false;
+            }
+            this.publicMethod = function() {
+                privateVariable ++;
+                return privateFunction();
+            }
+        }
     </script>
 </body>
 </html>
