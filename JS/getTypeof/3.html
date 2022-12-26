@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symbol</title>
+    <meta name="description" content="标记">
+</head>
+<body>
+    <script>
+        const s = Symbol();
+        console.log(s,typeof s);
+
+        const foo = Symbol('foo');  // 声明symbol，独一无二的
+        const s1 = Symbol.for('foo');   // 查找symbol
+        const s2 = Symbol.for('foo');
+        const s3 = foo;
+        console.log(s1 === s2,foo === s1,s3 === foo);
+
+        // 应用
+        const obj = {
+            name: 'xxx',
+            [name]: 'yyy',
+            [Symbol()]: 'zzz'
+        }
+        let mySymbol = Symbol();
+        let a = {};
+        a[mySymbol] = "Hello";
+        
+    </script>
+</body>
+</html>
