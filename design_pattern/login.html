@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .loginModel {
+            z-index: 9999;
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background-color: rgba(0, 0, 0, .5);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .close {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+
+        .close:hover {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="javascript:;" class="btn">登录</a>
+    <!-- <div class="loginModel hide">
+        <div class="close">x</div> -->
+    </div>
+    <script>
+
+        class singleModel {
+            constructor() {
+                const hdiv = document.createElement('div');
+                hdiv.className = 'loginModel hide';
+                const cbtn = document.createElement('div');
+                cbtn.className = 'close';
+                cbtn.appendChild(
+                    document.createTextNode('x')
+                )
+                hdiv.appendChild(cbtn);
+                document.body.appendChild(hdiv);
+                cbtn.addEventListener('click',() => {
+                    this.hide();
+                })
+            }
+            show() {
+                const model = document.querySelector('.loginModel');
+                model.classList.remove('hide');
+            }
+            hide() {
+                let model = document.querySelector('.loginModel');
+                model.classList.add('hide');
+            }
+            static getInstance() {
+                if (!singleModel.instance) {
+                    singleModel.instance = new singleModel();
+                }
+                return singleModel.instance;
+            }
+        }
+        document.body.addEventListener('click',e => {
+            if(e.target.className === 'btn') {
+                const model = singleModel.getInstance();
+                model.show();
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>
