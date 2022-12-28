@@ -128,6 +128,87 @@
         let gfn = generatorFn();
         console.log(gfn,gfn.next());
         console.log(gfn.next());
+
+        // 控制循环
+        function * nTimes(n) {
+            while(n --) {
+                yield;
+            }
+        }
+        for(let _ of nTimes(3)) {
+            console.log('foo');
+        };
+
+        function * out(initail) {
+            console.log(initail);
+            console.log('........1');
+            console.log(yield);
+            // yield;
+            console.log('........2');
+            console.log(yield);
+            console.log('........3');
+        }
+        let o = out('foo');
+        console.log(o.next('bar'));
+        console.log(o.next('baz'));
+        o.next('qux');
+
+        function * strongFn() {
+            yield * [1,2,3];
+            return 'bar';
+        }
+        let sfn = strongFn();
+        for(const x of strongFn()) {
+            console.log(x);
+        }
+        console.log(sfn.next());
+        console.log(sfn.next());
+        console.log(sfn.next());
+        console.log(sfn.next());    // value: bar,done: true
+
+        // 应用之实现递归
+        function * dfs(n) {
+            if(n > 0) {
+                yield * dfs(n - 1);
+                yield n - 1;
+            }
+        };
+        for(const x of dfs(10)) {
+            console.log(x);
+        }
+
+        // 生成器作为默认迭代器
+        class hasDefaultIterator {
+            constructor() {
+                this.value = [1,2,3];
+            }
+            * [Symbol.iterator]() {
+                yield * this.value;
+            }
+        } 
+        const hdi = new hasDefaultIterator();
+        for(const x of hdi) {
+            console.log(x)
+        }
+
+        console.log('....................');
+        function * trc() {
+            for(const x of [1,2,3,4]) {
+                try {
+                    yield x;
+                    console.log('...' + x);
+                }
+                catch(e) {
+
+                }
+                // yield x;     // 直接抛出会关闭
+            }
+        };
+        const t = trc();
+        console.log(t.next());
+        console.log(t.next());
+        console.log(t.throw('bar'));
+        console.log(t.next());
     </script>
 </body>
 
