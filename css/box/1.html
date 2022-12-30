@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .limit {
+            width: 100px;
+            padding: 20px;
+            border: 20px solid red;
+        }
+        .no {
+            padding: 20px;
+            border: 20px solid black;
+        }
+        .auto_father {
+            width: 100px;
+        }
+        .auto_son {
+            padding: 20px;
+            border: 20px solid green;
+        }
+        .box1 {
+            /* 默认值 */
+            box-sizing: content-box;
+            width: 100px;
+            padding: 20px;
+            border: 20px solid yellow;
+        }
+        .box2 {
+            /* Firefox曾经支持 */
+            box-sizing: padding-box;
+            width: 100px;
+            padding: 20px;
+            border: 20px solid yellow;
+        }
+        .box3 {
+            /* 全部支持 */
+            box-sizing: border-box;
+            width: 100px;
+            padding: 20px;
+            border: 20px solid yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="limit">宽是180</div>
+    <div class="no">没有宽度限定</div>
+    <!-- 宽度与padding margin border分离，但是成本消耗大 -->
+    <div class="auto_father">
+        <div class="auto_son"></div>
+    </div>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+</body>
+</html>
