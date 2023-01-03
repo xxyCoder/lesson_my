@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Map转换为数组
+        const arrMap = new Map()
+                            .set([true,7])
+                            .set({foo:3},['abc']);
+        [...arrMap];
+        // Map转换为对象
+        const objMap = new Map()
+                                .set('yes',true)
+                                .set('no',false);
+        let obj = {};
+        for(let [k,v] of objMap) {
+            obj[k] = v;
+        }
+        // 对象转换为Map
+        const Mapobj = new Map();
+        for(let k of Object.keys(obj)) {
+            Mapobj.set(k,obj[k]);
+        }
+        // Map => JSON
+        let MapJSON = new Map().set('yes',true).set('no',false);
+        // 1.键为字符串,先将map转换为对象，然后将对象转换为JSON
+        console.log(JSON.stringify(obj));
+        // 2.键有非字符串名,转为为JSON数组
+        console.log(JSON.stringify([...MapJSON]));
+        // JSON => Map，先转换为对象，然后对象转换为Map
+        console.log(typeof JSON.parse('{"true":1,"false":0}'));
+    </script>
+</body>
+</html>

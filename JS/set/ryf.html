@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 构造
+        const s = new Set();
+        [1,2,3,4,5,5,4,3,2,1].forEach(x => s.add(x));
+        // 应用，去除元素中重复元素
+        let arr = [1,2,3,4,4,4,5,5,5,5];
+        console.log([...new Set(arr)]);
+        // Set内部会判断两个值是否不同，判断时不会发生类型转换，类似于 === ，但是对于NaN的判断，认为都是相等的
+        s
+        .add("5")
+        .add(5)
+        .add(NaN)
+        .add(NaN)
+        .add({})
+        .add({});
+        // 两个对象总是不同的
+    </script>
+</body>
+</html>
