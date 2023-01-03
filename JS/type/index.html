@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let obj = {
+            name: 'xxx',
+            5:5, // 数值属性会自动转换为字符串 '5':5
+            "first name": 'x'
+        }   
+        console.log(obj['5'],obj.name,obj["first name"]);
+        // 创建数组
+        let arr1 = new Array();
+        let arr2 = new Array(20);
+        let arr3 = new Array("xxx","yyy","zzz");
+        console.log(arr1.length,arr2.length,arr3.length);
+        // 数组字面量
+        let arr4 = [];
+        let arr5 = [1,2,];
+        console.log(arr5.length)
+        // from
+        let arr6 = Array.from("xxy666");
+        for(let x of arr6) {
+            console.log(x);
+        }
+        let arr7 = [1,2,3,4,5];
+        let arr8 = Array.from(arr7);
+        console.log(arr7 === arr8);
+        let arr9 = Array.from(arr7,x => x ** 2);
+        for(let x of arr9) {
+            console.log(x);
+        }
+        let arr10 = Array.from(arr7,function(x) {
+            return x ** this.exp;
+        },{exp: 2});
+        
+        for(let x of arr10) {
+            console.log(x);
+        }
+        // to
+        let arr11 = Array.of(1,2,3,4);
+        console.log(arr11);
+        // 空位数组，占位子
+        let arr12 = [,,,,,];
+        console.log(arr12);
+        // 
+        let arr13 = [];
+        arr13[13] = 13;
+        console.log(arr13);
+        // 判断是否为数组
+        console.log(Array.isArray(arr13));
+        // keys values entries
+        const akey = Array.from(arr13.keys());
+        const aval = Array.from(arr13.values());
+        const aent = Array.from(arr13.entries());
+        console.log(akey,aval,aent);
+        // 覆盖
+        const zeros = [0,0,0,0,0];
+        zeros.fill(5);
+        console.log(zeros);
+        zeros.fill(6,3);    // 用6填充索引大于等于3
+        console.log(zeros);
+        // 填充[1,3)范围
+        zeros.fill(1,1,3);
+        // 插入
+        zeros.copyWithin(4,0,3);
+        console.log(zeros);
+        // every
+        let numbers = [1,2,3,4,5,4,3,2,1];
+        let everyResult = numbers.every((item,index,array) => item > 2);
+        console.log(everyResult);
+        // filter
+        let filterResult = numbers.filter((item,index,array) => item > 2);
+        console.log(filterResult);
+        // forEach
+        numbers.forEach((item,index,array) => {
+            console.log(item,index,array);
+        })
+        // ArrayBuffer
+        const buf = ArrayBuffer(16);    // 在内存中分配16字节，初始化值为0
+        // 读写
+        const fullDataView = new DataView(buf);
+        const firstHalfDataView = new DataView(buf,0,8);
+    </script>
+</body>
+</html>
