@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const obj = {};
+        Object.defineProperty(obj,'counter',{
+            value: 42,
+            writable: false,
+            enumerable: true,
+            // configurable: true
+        })
+        // Object.defineProperty(obj,'counter',{
+        //     enumerable:false // 报错
+        // });
+
+        // 防止修改
+        Object.freeze(obj);
+        obj.a = 2;
+        
+        const fobj = {
+            "1":1,
+            "2":2,
+            [Symbol()]:3
+        }
+        for(let x in fobj) {
+            console.log(x,fobj[x]);
+        }
+        console.log(Object.getOwnPropertySymbols(fobj));
+
+        // 访问器属性
+        let o = {};
+        Object.defineProperty(o,'b',{
+            get() {
+                return '20';
+            }
+        });
+        console.log(o.b);
+        // 定义多个属性
+        let book = {};
+        Object.defineProperties(book,{
+            year_:{
+                value:2017
+            },
+            edition: {
+                value:1
+            },
+            year: {
+                get() {
+                    return this.year_;
+                },
+                set(val) {
+                    if(val > 2017) {
+                        this.year_ = val;
+                        this.edition += val - 2017;
+                    }
+                }
+            }
+        })
+        // 描述符
+        let dec = Object.getOwnPropertyDescriptor(book,'year_');
+        console.log(dec.value);
+    </script>
+</body>
+</html>
