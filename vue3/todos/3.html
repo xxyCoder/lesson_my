@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todos</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <style>
+        .done {
+            color: gray;
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h2>{{title}}</h2>
+        <!-- 双向绑定 -->
+        <!-- 带有修饰符的事件绑定  -->
+        <input type="text" v-model="title" @keydown.enter="addTodo">
+        <ul>
+            <!-- <li v-for="(todo, index) in todos" :key="index" >{{todo}}</li> -->
+            <li v-for="(todo, index) in todos" :key="index">
+                <input type="checkbox" v-model="todo.done">
+                <span :class="{done:todo.done}">{{todo.title}}</span>
+            </li>
+        </ul>
+        <div>
+            {{active}} / {{all}};
+        </div>
+        <div>
+            全选 <input type="checkbox" v-model="allDone" />
+        </div>
+        <button v-if="active > 0" @click="clear">清除</button>
+    </div>
+    <script>
+        const app = Vue.createApp({
+            methods: {
+                addTodo() {
+                    // 数据就是业务本身， DOM api 才是身外之物
+                    // console.log('按下了enter');
+                    // 数据驱动思想
+                    this.todos.push(this.title)
+                    this.title = ''
+                },
+                clear() {
+                    this.todos.forEach(element => {
+                        element.done = false;
+                    });
+                }
+            },
+            data() {
+                return {
+                    title: 'fdfd',
+                    todos: [
+                        { title: "c++", done: false },
+                        { title: "go", done: false },
+                        { title: "js", done: true }
+                    ],
+                }
+            },
+            // 计算属性
+            computed: {
+                all() {
+                    return this.todos.length;
+                },
+                active() {
+                    return this.todos.filter(todo => todo.done).length;
+                },
+                allDone: {
+                    get: function () {
+                        return this.active === this.all;
+                    },
+                    set: function (val) {
+                        console.log(val, '///////');
+                        this.todos.forEach(todo => todo.done = val)
+                    }
+                }
+            }
+        })
+        app.mount('#app');
+    </script>
+</body>
+
+</html>
