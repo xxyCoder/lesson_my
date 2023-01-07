@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 声明异步函数
+        async function foo() {
+            console.log(1);
+        };
+        let bar = async function() {
+            console.log(4);
+            return 4;
+        };
+        let baz = async () => {
+            throw Error('baz');
+        };
+        class Qux {
+            async qux() {}
+        };
+        // 普通函数
+        function boo() {
+            console.log(3);
+        };
+        console.log(foo());
+        console.log(2);
+        console.log(boo());
+        console.log(bar());
+
+        console.log(baz().catch(console.log));
+        console.log('------------------------------');
+        // 暂停异步
+        async function stop() {
+            console.log(await 'stop');
+        }
+        stop();
+        console.log('start');
+        // 实现sleep
+        async function sleep(delay) {
+            return new Promise((resolve) => setTimeout(resolve,delay));
+        }
+        async function toCount() {
+            const t0 = Date.now();
+            await sleep(5000);
+            console.log(Date.now() - t0);
+        }
+        toCount();
+    </script>
+</body>
+</html>
